@@ -1,6 +1,6 @@
-let music: HTMLAudioElement = new Audio("/assets/music.mp3");
-let audioTurn: HTMLAudioElement = new Audio("/assets/ting.mp3");
-let gameover: HTMLAudioElement = new Audio("/assets/gameover.mp3");
+let music: HTMLAudioElement = new Audio("assets/music.mp3");
+let audioTurn: HTMLAudioElement = new Audio("assets/ting.mp3");
+let gameover: HTMLAudioElement = new Audio("assets/gameover.mp3");
 let turn: string = "X";
 let isgameover: boolean = false;
 
@@ -82,7 +82,8 @@ reset.addEventListener("click", () => {
   }
   const infoElement = document.getElementsByClassName("info")[0] as HTMLElement;
   infoElement.innerHTML = "Turn for " + turn;
-  document
-    .querySelector(".imgbox")!
-    .getElementsByTagName("img")[0].style.width = "0px";
+  const imgbox = document.querySelector(".imgbox");
+  if (imgbox) {
+    imgbox.getElementsByTagName("img")[0].style.width = "0px";
+  }
 });

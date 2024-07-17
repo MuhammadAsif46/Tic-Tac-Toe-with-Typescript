@@ -1,6 +1,6 @@
-var music = new Audio("/assets/music.mp3");
-var audioTurn = new Audio("/assets/ting.mp3");
-var gameover = new Audio("/assets/gameover.mp3");
+var music = new Audio("assets/music.mp3");
+var audioTurn = new Audio("assets/ting.mp3");
+var gameover = new Audio("assets/gameover.mp3");
 var turn = "X";
 var isgameover = false;
 // Function to change the turn
@@ -24,14 +24,20 @@ var checkWin = function () {
         if (text[e[0]].innerText === text[e[1]].innerText &&
             text[e[2]].innerText === text[e[1]].innerText &&
             text[e[0]].innerText !== "") {
-            document.querySelector(".info").innerText = text[e[0]].innerText + " Won";
+            var infoElement = document.querySelector(".info");
+            if (infoElement) {
+                infoElement.innerHTML = text[e[0]].innerText + " Won";
+            }
             isgameover = true;
-            document
-                .querySelector(".imgbox")
-                .getElementsByTagName("img")[0].style.width = "200px";
+            var imgbox = document.querySelector(".imgbox");
+            if (imgbox) {
+                imgbox.getElementsByTagName("img")[0].style.width = "200px";
+            }
             var line = document.querySelector(".line");
-            line.style.transform = "translate(".concat(e[3], "vw, ").concat(e[4], "vw) rotate(").concat(e[5], "deg)");
-            line.style.width = "20vw";
+            if (line) {
+                line.style.transform = "translate(".concat(e[3], "vw, ").concat(e[4], "vw) rotate(").concat(e[5], "deg)");
+                line.style.width = "20vw";
+            }
         }
     });
 };
@@ -47,8 +53,8 @@ Array.from(boxes).forEach(function (element) {
             audioTurn.play();
             checkWin();
             if (!isgameover) {
-                document.getElementsByClassName("info")[0].innerText =
-                    "Turn for " + turn;
+                var infoElement = document.getElementsByClassName("info")[0];
+                infoElement.innerHTML = "Turn for " + turn;
             }
         }
     });
@@ -62,8 +68,14 @@ reset.addEventListener("click", function () {
     });
     turn = "X";
     isgameover = false;
-    document.querySelector(".line").style.width = "0vw";
-    document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
-    document.querySelector(".imgbox").getElementsByTagName("img")[0].style.width =
-        "0px";
+    var line = document.querySelector(".line");
+    if (line) {
+        line.style.width = "0vw";
+    }
+    var infoElement = document.getElementsByClassName("info")[0];
+    infoElement.innerHTML = "Turn for " + turn;
+    var imgbox = document.querySelector(".imgbox");
+    if (imgbox) {
+        imgbox.getElementsByTagName("img")[0].style.width = "0px";
+    }
 });
