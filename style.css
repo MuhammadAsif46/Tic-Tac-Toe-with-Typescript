@@ -6,7 +6,7 @@
 }
 
 nav{
-    background-color: rgb(38, 120, 226);
+    background-color: #52b788;
     color: #fff;
     padding: 1rem 0;
 }
@@ -27,7 +27,7 @@ p{
     grid-template-rows: repeat(3, 10vw);
     grid-template-columns: repeat(3, 10vw);
     position: relative;
-    background-color: rgb(38, 120, 226);
+    background-color: #74c69d;
     /* background-color: #219ebc; */
 }
 
@@ -41,7 +41,7 @@ p{
 }
 
 .box:hover{
-    background-color: rgb(5, 76, 168);
+    background-color: #40916c;
     
 }
 
@@ -87,7 +87,7 @@ p{
 #reset {
     margin: 0 23px;
     padding: 5px 18px;
-    background-color: rgb(5, 76, 168);
+    background-color: #40916c;
     border-radius: 6px;
     color: #fff;
     border: none;
@@ -101,7 +101,7 @@ p{
     height: 3px;
     width: 0;
     position: absolute;
-    background-color: #caf0f8;
+    background-color: #80ed99;
     transition: width 1s ease-in-out;
     border-radius: 50px;
 }
