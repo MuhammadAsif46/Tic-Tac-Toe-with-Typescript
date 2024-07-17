@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:opsz,wght@8..144,100..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+nav{
+    background-color: rgb(38, 120, 226);
+    color: #fff;
+    padding: 1rem 0;
+}
+
+p{
+    text-align: center;
+    font-size: 24px;
+}
+
+.gameContainer{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: repeat(3, 10vw);
+    grid-template-columns: repeat(3, 10vw);
+    position: relative;
+    background-color: rgb(38, 120, 226);
+    /* background-color: #219ebc; */
+}
+
+.box{
+    border: 1px solid #fff;
+    font-size: 8vw;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:hover{
+    background-color: rgb(5, 76, 168);
+    
+}
+
+
+.info {
+    font-size: 22px;
+}
+.text{
+    color: #fff;
+    font-size: 4rem;
+}
+
+.gameInfo{
+    padding: 0 34px;
+    font-family: 'Baloo Bhaina 2', cursive;
+}
+
+.gameInfo h1{
+    font-size: 2.5rem;
+}
+
+.imgbox img{
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+.br-0{
+    border-right: 0;
+}
+
+.bl-0{
+    border-left: 0;
+}
+
+.bt-0{
+    border-top: 0;
+}
+
+.bb-0{
+    border-bottom: 0;
+}
+
+#reset {
+    margin: 0 23px;
+    padding: 5px 18px;
+    background-color: rgb(5, 76, 168);
+    border-radius: 6px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.line{
+    background-color: black;
+    height: 3px;
+    width: 0;
+    position: absolute;
+    background-color: #caf0f8;
+    transition: width 1s ease-in-out;
+    border-radius: 50px;
+}
+
+@media screen and (max-width: 950px)
+{
+    .gameContainer{
+        flex-wrap: wrap;
+    }
+    .gameInfo{
+        margin-top: 34px;
+    }
+    .gameInfo h1{
+        font-size: 1.5rem;
+    }
+    .container { 
+        grid-template-rows: repeat(3, 20vw);
+        grid-template-columns: repeat(3, 20vw);
+    }
+}
