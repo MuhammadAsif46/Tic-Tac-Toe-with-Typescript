@@ -5,14 +5,16 @@ let turn: string = "X";
 let isgameover: boolean = false;
 
 // Function to change the turn
-const changeTurn = ():string => {
+const changeTurn = (): string => {
   return turn === "X" ? "0" : "X";
 };
 
 // Function to check for a win
-const checkWin = ():void => {
-  let text = document.getElementsByClassName("text") as HTMLCollectionOf<HTMLElement>;
-  let wins:number[][] = [
+const checkWin = (): void => {
+  let text = document.getElementsByClassName(
+    "text"
+  ) as HTMLCollectionOf<HTMLElement>;
+  let wins: number[][] = [
     [0, 1, 2, 5, 5, 0],
     [3, 4, 5, 5, 15, 0],
     [6, 7, 8, 5, 25, 0],
@@ -28,14 +30,17 @@ const checkWin = ():void => {
       text[e[2]].innerText === text[e[1]].innerText &&
       text[e[0]].innerText !== ""
     ) {
-      document.querySelector(".info")!.innerText = text[e[0]].innerText + " Won";
+      const infoElement = document.querySelector(".info");
+      if (infoElement) {
+        infoElement.innerHTML = text[e[0]].innerText + " Won";
+      }
       isgameover = true;
       document
         .querySelector(".imgbox")!
         .getElementsByTagName("img")[0].style.width = "200px";
-        const line = document.querySelector(".line") as HTMLElement;
-        line.style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
-        line.style.width = "20vw";
+      const line = document.querySelector(".line") as HTMLElement;
+      line.style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
+      line.style.width = "20vw";
     }
   });
 };
@@ -70,6 +75,7 @@ reset.addEventListener("click", () => {
   isgameover = false;
   document.querySelector(".line")!.style.width = "0vw";
   document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
-  document.querySelector(".imgbox")!.getElementsByTagName("img")[0].style.width =
-    "0px";
+  document
+    .querySelector(".imgbox")!
+    .getElementsByTagName("img")[0].style.width = "0px";
 });
