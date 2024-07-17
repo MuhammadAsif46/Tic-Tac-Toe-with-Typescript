@@ -35,12 +35,15 @@ const checkWin = (): void => {
         infoElement.innerHTML = text[e[0]].innerText + " Won";
       }
       isgameover = true;
-      document
-        .querySelector(".imgbox")!
-        .getElementsByTagName("img")[0].style.width = "200px";
+      const imgbox = document.querySelector(".imgbox");
+      if (imgbox) {
+        imgbox.getElementsByTagName("img")[0].style.width = "200px";
+      }
       const line = document.querySelector(".line") as HTMLElement;
-      line.style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
-      line.style.width = "20vw";
+      if (line) {
+        line.style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
+        line.style.width = "20vw";
+      }
     }
   });
 };
@@ -57,8 +60,8 @@ Array.from(boxes).forEach((element) => {
       audioTurn.play();
       checkWin();
       if (!isgameover) {
-        document.getElementsByClassName("info")[0].innerText =
-          "Turn for " + turn;
+        const infoElement = document.getElementsByClassName("info")[0] as HTMLElement;
+        infoElement.innerHTML = "Turn for " + turn;
       }
     }
   });
